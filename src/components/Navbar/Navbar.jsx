@@ -273,6 +273,9 @@ function NavBar() {
 
           </List>
         </Box>
+        <Typography level="body-sm" sx = {{
+          textAlign: 'center',
+        }}>v0.0.3</Typography>
       </Sheet>
     );
   }

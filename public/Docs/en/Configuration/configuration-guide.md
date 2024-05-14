@@ -1,32 +1,30 @@
-# Treasure Hunt App - Documentation
-
-## Configuration Guide
+# Configuration Guide
 
 This section outlines the configuration options for both user and admin settings within the Treasure Hunt app.
 
-### General Settings
+## General Settings
 
-#### User Settings:
+### User Settings:
 
 - **Language (en/ro):** Users can choose their preferred language from the top of the sidebar menu.
 - **Theme (dark/light):** The theme adapts automatically based on the user's device settings.
 
-#### Admin Settings:
+### Admin Settings:
 
 - **Manage Hunt Timings:** Set global start and end times for the treasure hunt, ensuring everyone participates within the designated timeframe.
 - **Show/Hide Answer Page:** Control whether the page revealing correct answers is accessible to all users.
 - **Location Management (Create/Edit/Delete):** Admins can manage Points of Interest (POIs) within the hunt. This includes adding new locations, editing existing ones, and removing them entirely.
 - **User Management (Role/Delete):** Admins have the ability to edit user roles (e.g., player, admin) and delete user accounts.
 
-## Integration Setup
+# Integration Setup
 
-### Database Setup
+## Database Setup
 
-#### Prerequisites (Cloud Deployment):
+### Prerequisites (Cloud Deployment):
 
 - A MongoDB cloud account like MongoDB Atlas ([https://www.mongodb.com/cloud/atlas/register](https://www.mongodb.com/cloud/atlas/register)) is required.
 
-#### Deployment Steps:
+### Deployment Steps:
 
 1. **Create a MongoDB Database:**
 
@@ -39,7 +37,7 @@ This section outlines the configuration options for both user and admin settings
    - **pois:** Stores point of interest (POI) details (name, description, geolocation, etc.).
    - **responses:** Stores user responses (user ID, POI ID, answer, timestamp, etc.).
 
-#### MongoDB Database Connection
+### MongoDB Database Connection
 
 **Important Note:** The `.env` file is needed only for local installations. For Render deployments, you should set environment variables through the Render dashboard. Here are the steps:
 
@@ -54,12 +52,12 @@ This section outlines the configuration options for both user and admin settings
     - `HUGGING_FACE_TOKEN`
 5. **Save Changes:** Click "Save" or "Deploy" to apply the changes to your Render service.
 
-#### .env
+### .env
 
 ```plaintext
 # MongoDB Database Connection
 URI_USER="mongodb+srv://myDatabaseUser:myPassword@cluster0.example.mongodb.net/Users?retryWrites=true&w=majority"
-URI_POI="mongodb+srv://myDatabaseUser:myPassword@cluster0.example.mongodb.net/locations?retryWrites=true&w=majority"
+URI_POI="mongodb+srv://myDatabaseUser:myPassword@cluster0.example.mongodb.net/pois?retryWrites=true&w=majority"
 URI_RESPONSES="mongodb+srv://myDatabaseUser:myPassword@cluster0.example.mongodb.net/responses?retryWrites=true&w=majority"
 
 # Server Port
@@ -71,15 +69,15 @@ SECRET_ACCESS_TOKEN="<jwt-secret-access-key>"
 HUGGING_FACE_TOKEN="<hugging-face-api-token>"
 ```
 
-### Server Port
+## Server Port
 
 The server operates on port `PORT=5005` by default.
 
-### Environmental Variables
+## Environmental Variables
 
 - **SECRET_ACCESS_TOKEN="<jwt-secret-access-key>":** This secret key is crucial for generating JSON Web Tokens (JWT) used for user authentication within the app.
 - **HUGGING_FACE_TOKEN="<hugging-face-api-token>":** This token grants access to the Hugging Face API, which empowers the app with AI-powered features like automated response evaluation.
 
-### Why HuggingFace?
+## Why HuggingFace?
 
-The Treasure Hunt app leverages Hugging Face, a leading platform for natural language processing (NLP). By integrating with Hugging Face's API, the app can implement AI-powered auto-evaluation of user responses. This functionality analyzes user answers and compares them against pre-defined criteria, reducing the need for manual evaluation by admins.
+The Treasure Hunt app leverages Hugging Face, a leading platform for natural language processing (NLP). By integrating with Hugging Face's API, the app can implement AI-powered auto-evaluation of user responses. This functionality analyzes user answers and compares them against pre-defined answers, reducing the need for manual evaluation by admins.

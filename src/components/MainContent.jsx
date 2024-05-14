@@ -4,8 +4,13 @@ import { GlobalStyles } from "@mui/joy";
 import routeConfig from "./Routes/routeConfig.js";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./Layout.tsx";
-
+import { useTheme } from "@mui/joy";
 function MainContent() {
+  const theme = useTheme();
+  const isDarkMode = theme.palette.mode === "dark";
+  const backgroundImageUrl = isDarkMode
+    ? "./icons/backgroundDark.jpg"
+    : "./icons/backgroundLight.jpg";
   return (
     <Box
       component="main"
@@ -14,13 +19,16 @@ function MainContent() {
       maxHeight="100vh"
       sx={{
         backgroundColor: "background.body",
-        px: { xs: 1, md: 1.5 },
+        backgroundImage: `url(${backgroundImageUrl})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        px: { xs: 2, md: 3 },
         pt: {
           xs: "calc(22px + var(--Header-height))",
           sm: "calc(24px + var(--Header-height))",
-          md: 1.5,
+          md: 3,
         },
-        pb: { xs: 1 , md: 1.5 },
+        pb: { xs: 2, md: 3 },
         flex: 1,
         display: "flex",
         flexDirection: "column",
@@ -48,16 +56,11 @@ function MainContent() {
             </Layout>
           );
 
-          return (
-            <Route
-              key={index}
-              path={route.path}
-              element={routeElement}
-            />
-          );
+          return <Route key={index} path={route.path} element={routeElement} />;
         })}
       </Routes>
-    </Box>)
+    </Box>
+  );
 }
 
 export default MainContent;
