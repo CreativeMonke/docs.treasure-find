@@ -1,7 +1,7 @@
 import { Box } from '@mui/joy';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import MarkdownRenderer from '../MarkdownRenderer';
-const DeploymentGuide = () => {
+function DeploymentGuide() {
     return (
         <Box sx = {{
             overflow : "auto",

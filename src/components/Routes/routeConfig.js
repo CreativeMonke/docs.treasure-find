@@ -4,6 +4,7 @@ import SupportPage from '../pages/Support/SupportPage.jsx';
 import DocsSupportPage from '../Docs/Support/DocsSupportPage.jsx';
 import DeploymentGuide from '../Docs/Deployment/DeploymentGuide.jsx';
 import ConfigurationGuide from '../Docs/Configuration/ConfigurationGuide.jsx';
+import EndpointsReference from '../Docs/Api/ApiReference.jsx';
 const routeConfig = [
   {
     path: '/',
@@ -17,7 +18,7 @@ const routeConfig = [
 
   },
   {
-    path: 'docs/support',
+    path: '/docs/support',
     element: DocsSupportPage,
   },
   {
@@ -27,6 +28,10 @@ const routeConfig = [
   {
     path: "/configuration",
     element: ConfigurationGuide,
+  },
+  {
+    path: '/api/endpoints',
+    element: EndpointsReference,
   }
 ];
 

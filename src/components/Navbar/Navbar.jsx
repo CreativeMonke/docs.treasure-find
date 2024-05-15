@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import Box from "@mui/joy/Box";
 import {
+  DialogContent,
   Divider,
   Grid,
   List,

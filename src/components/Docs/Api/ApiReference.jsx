@@ -1,7 +1,7 @@
 import { Box } from "@mui/joy";
 import React from "react";
 import MarkdownRenderer from "../MarkdownRenderer";
-function ConfigurationGuide() {
+function EndpointsReference() {
   return (
     <Box
       sx={{
@@ -9,9 +9,9 @@ function ConfigurationGuide() {
         borderRadius: 10,
       }}
     >
-      <MarkdownRenderer path="Configuration/configuration-guide.md" />
+      <MarkdownRenderer path="Api/endpoints-reference.md" />
     </Box>
   );
 }
 
-export default ConfigurationGuide;
+export default EndpointsReference;
