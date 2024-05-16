@@ -190,7 +190,7 @@ function NavBar() {
           p: 2,
           gap: 2,
           height: "100dvh",
-          width: "100%",
+          maxwidth: "var(--Sidebar-width)",
         }}
       >
         <Box
@@ -255,7 +255,11 @@ function NavBar() {
                               selected={nestedItem.isCurrent}
                               onClick={toggleDrawer}
                             >
-                              {nestedItem.title}
+                              <Typography
+                                color={nestedItem.isCurrent ? "primary" : ""}
+                              >
+                                {nestedItem.title}
+                              </Typography>
                             </ListItemButton>
                           </ListItem>
                         );

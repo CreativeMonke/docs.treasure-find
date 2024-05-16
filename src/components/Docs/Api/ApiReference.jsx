@@ -13,5 +13,17 @@ function EndpointsReference() {
     </Box>
   );
 }
+export function AuthReference() {
+  return (
+    <Box
+      sx={{
+        overflow: "auto",
+        borderRadius: 10,
+      }}
+    >
+      <MarkdownRenderer path="Api/auth-reference.md" />
+    </Box>
+  );
+}
 
 export default EndpointsReference;

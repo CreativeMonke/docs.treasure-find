@@ -11,8 +11,8 @@ Următoarele middleware-uri sunt utilizate în diverse puncte de terminare pentr
 - **Verify:** Asigură că utilizatorul este autentificat.
 - **VerifyRole:** Asigură că utilizatorul are rolul corespunzător (admin).
 - **Validate:** Validează datele de intrare în funcție de criteriile specificate.
-- **locateMiddleware:** Validează ID-ul locației pentru cererile legate de locație.
-- **validateUpdate:** Validează datele de intrare pentru cererile de actualizare a utilizatorului.
+- **LocateMiddleware:** Validează ID-ul locației pentru cererile legate de locație.
+- **ValidateUpdate:** Validează datele de intrare pentru cererile de actualizare a utilizatorului.
 
 ---
 
@@ -203,7 +203,7 @@ Verifică validitatea tuturor răspunsurilor.
 </details>
 
 <details>
-<summary><strong>Verifică e-mailul</strong></summary>
+<summary><strong>Verificarea e-mailului</strong></summary>
 
 **Punct de terminare:**
 
@@ -220,7 +220,7 @@ Verifică adresa de e-mail a unui utilizator.
 </details>
 
 <details>
-<summary><strong>Verifică dacă este autentificat</strong></summary>
+<summary><strong>Verificarea autentificării </strong></summary>
 
 **Punct de terminare:**
 
@@ -274,7 +274,7 @@ Deconectează utilizatorul autentificat.
 
 ---
 
-## Gestionarea vânătorilor
+## Gestionarea individuală a vânătorii
 
 <details>
 <summary><strong>Obține opțiunile vânătorii</strong></summary>

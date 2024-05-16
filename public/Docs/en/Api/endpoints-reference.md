@@ -11,8 +11,8 @@ The following middleware is used across various endpoints to ensure security and
 - **Verify:** Ensures the user is authenticated.
 - **VerifyRole:** Ensures the user has the appropriate role (admin).
 - **Validate:** Validates input data based on specified criteria.
-- **locateMiddleware:** Validates location ID for location-related requests.
-- **validateUpdate:** Validates input data for user update requests.
+- **LocateMiddleware:** Validates location ID for location-related requests.
+- **ValidateUpdate:** Validates input data for user update requests.
 
 ---
 
