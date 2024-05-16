@@ -66,7 +66,9 @@ function NavBar() {
   );
   const location = useLocation();
   const navigate = useNavigate();
-  const isCurrent = (path) => location.pathname === path;
+  function isCurrent(path) {
+    return location.pathname === path;
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -85,93 +87,98 @@ function NavBar() {
     setIsDrawerOpen(false);
   }
 
-  const sidebarItems = [{
-    title: "Home",
-    icon: <HomeRounded />,
-    link: "/",
-    current: isCurrent("/"),
-    nested: false,
-  },
-  {
-    title : "Deployment guide",
-    icon : <RocketLaunchRounded />,
-    link: "/deployment",
-    isCurrent: isCurrent("deployment"),
-    nested: false,
-  },
-  {
-    title: "Configuration",
-    icon: <TuneRounded />,
-    link: "/configuration",
-    isCurrent: isCurrent("configuration"),
-    nested: false,
-  },
-  {
-    title: "Api Reference",
-    icon: <ApiRounded />,
-    link: "/api",
-    isCurrent: isCurrent("api"),
-    nested: true,
-    children: [{
-      title: "Endpoints",
-      link: "/api/endpoints",
-      isCurrent: isCurrent("api/endpoints"),
+  const sidebarItems = [
+    {
+      title: "Home",
+      icon: <HomeRounded />,
+      link: "/",
+      current: isCurrent("/"),
+      nested: false,
     },
     {
-      title: "Authentication",
-      link: "/api/authentication",
-      isCurrent: isCurrent("api/authentication"),
-    }]
-  },
-  {
-    title: "Database configuration",
-    icon: <StorageRounded />,
-    link: "/api/database",
-    isCurrent: isCurrent("api/database"),
-    nested: false,
-  },
-  {
-    title: "Codebase Overview:",
-    icon: <CodeRounded />,
-    link: "/codebase",
-    isCurrent: isCurrent("codebase"),
-    nested: true,
-    children: [{
-      title: "Project structure",
-      link: "/codebase/structure",
-      isCurrent: isCurrent("codebase/structure"),
+      title: "Deployment guide",
+      icon: <RocketLaunchRounded />,
+      link: "/deployment",
+      isCurrent: isCurrent("/deployment"),
+      nested: false,
     },
     {
-      title: "Module descriptions",
-      link: "/codebase/modules",
-      isCurrent: isCurrent("codebase/modules"),
-    }]
-  },
-  {
-    title: "Credits",
-    icon : <CopyrightRounded />,
-    link: "/credits",
-    isCurrent: isCurrent("credits"),
-    nested: true,
-    children: [{
-      title : "Frameworks & Libraries",
-      link: "/credits/frameworks",
-      isCurrent: isCurrent("credits/frameworks"),
+      title: "Configuration",
+      icon: <TuneRounded />,
+      link: "/configuration",
+      isCurrent: isCurrent("/configuration"),
+      nested: false,
     },
-  {
-    title : "Hosting Services",
-    link: "/credits/hosting",
-    isCurrent: isCurrent("credits/hosting"),
-  },
-  {
-    title : "Other services",
-    link: "/credits/other",
-    isCurrent: isCurrent("credits/other"),
-  }]
-  }
-  
-
-  ]
+    {
+      title: "Api Reference",
+      icon: <ApiRounded />,
+      link: "/api",
+      isCurrent: isCurrent("/api"),
+      nested: true,
+      children: [
+        {
+          title: "Endpoints",
+          link: "/api/endpoints",
+          isCurrent: isCurrent("/api/endpoints"),
+        },
+        {
+          title: "Authentication",
+          link: "/api/authentication",
+          isCurrent: isCurrent("/api/authentication"),
+        },
+      ],
+    },
+    {
+      title: "Database configuration",
+      icon: <StorageRounded />,
+      link: "/api/database",
+      isCurrent: isCurrent("/api/database"),
+      nested: false,
+    },
+    {
+      title: "Codebase Overview:",
+      icon: <CodeRounded />,
+      link: "/codebase",
+      isCurrent: isCurrent("/codebase"),
+      nested: true,
+      children: [
+        {
+          title: "Project structure",
+          link: "/codebase/structure",
+          isCurrent: isCurrent("/codebase/structure"),
+        },
+        {
+          title: "Module descriptions",
+          link: "/codebase/modules",
+          isCurrent: isCurrent("/codebase/modules"),
+        },
+      ],
+    },
+    {
+      title: "Credits",
+      icon: <CopyrightRounded />,
+      link: "/credits",
+      isCurrent: isCurrent("/credits"),
+      nested: true,
+      children: [
+        {
+          title: "Frameworks & Libraries",
+          link: "/credits/frameworks",
+          isCurrent: isCurrent("/credits/frameworks"),
+        },
+        {
+          title: "Hosting Services",
+          link: "/credits/hosting",
+          isCurrent: isCurrent("/credits/hosting"),
+        },
+        {
+          title: "Other services",
+          link: "/credits/other",
+          isCurrent: isCurrent("/credits/other"),
+        },
+      ],
+    },
+  ];
   function sidebarContents() {
     return (
       <Sheet
@@ -183,7 +190,7 @@ function NavBar() {
           p: 2,
           gap: 2,
           height: "100dvh",
-          width: "var(--Sidebar-width)",
+          width: "100%",
         }}
       >
         <Box
@@ -217,66 +224,75 @@ function NavBar() {
               "--ListItem-radius": (theme) => theme.vars.radius.sm,
             }}
           >
-            {sidebarItems.map(sidebarItem => {
-              return (
-                sidebarItem.nested ?
-                  <ListItem nested key={sidebarItem.title}>
-                    <Toggler
-                      renderToggle={({ open, setOpen }) => (
-                        <ListItemButton onClick={() => setOpen(!open)}>
-                          {sidebarItem.icon}
-                          <ListItemContent>
-                            <Typography level="title-sm">
-                              {sidebarItem.title}
-                            </Typography>
-                          </ListItemContent>
-                          <KeyboardArrowDownOutlined
-                            sx={{ transform: open ? "rotate(180deg)" : "none" }}
-                          />
-                        </ListItemButton>
-                      )}
-                    >
-                      <List sx={{ gap: 0.5 }}>
-                        {sidebarItem.children.map(nestedItem => {
-                          return (
-                            <ListItem>
-                              <ListItemButton
-                                component={Link}
-                                to={nestedItem.link}
-                                selected={nestedItem.isCurrent}
-                                onClick={toggleDrawer}
-                              >
-                                {console.log(1)}
-                                {nestedItem.title}
-                              </ListItemButton>
-                            </ListItem>)
-                        })}
-                      </List>
-                    </Toggler>
-                  </ListItem>
-                  :
-                  <ListItem key={sidebarItem.title}>
-                    <ListItemButton
-                      component={Link}
-                      to={sidebarItem.link}
-                      onClick={closeDrawer}
-                    >
-                      {sidebarItem.icon}
-                      <ListItemContent>
-                        <Typography level="title-sm">
-                          {sidebarItem.title}
-                        </Typography>
-                      </ListItemContent>
-                    </ListItemButton>
-                  </ListItem>
-              )
+            {sidebarItems.map((sidebarItem) => {
+              return sidebarItem.nested ? (
+                <ListItem nested key={sidebarItem.title}>
+                  <Toggler
+                    renderToggle={({ open, setOpen }) => (
+                      <ListItemButton onClick={() => setOpen(!open)}>
+                        {sidebarItem.icon}
+                        <ListItemContent>
+                          <Typography
+                            level="title-md"
+                            color={open && "warning"}
+                          >
+                            {sidebarItem.title}
+                          </Typography>
+                        </ListItemContent>
+                        <KeyboardArrowDownOutlined
+                          sx={{ transform: open ? "rotate(180deg)" : "none" }}
+                        />
+                      </ListItemButton>
+                    )}
+                  >
+                    <List sx={{ gap: 0.5 }}>
+                      {sidebarItem.children.map((nestedItem) => {
+                        return (
+                          <ListItem>
+                            <ListItemButton
+                              component={Link}
+                              to={nestedItem.link}
+                              selected={nestedItem.isCurrent}
+                              onClick={toggleDrawer}
+                            >
+                              {nestedItem.title}
+                            </ListItemButton>
+                          </ListItem>
+                        );
+                      })}
+                    </List>
+                  </Toggler>
+                </ListItem>
+              ) : (
+                <ListItem key={sidebarItem.title}>
+                  <ListItemButton
+                    component={Link}
+                    to={sidebarItem.link}
+                    onClick={closeDrawer}
+                  >
+                    {sidebarItem.icon}
+                    <ListItemContent>
+                      <Typography
+                        level="title-md"
+                        color={sidebarItem.isCurrent ? "primary" : ""}
+                      >
+                        {sidebarItem.title}
+                      </Typography>
+                    </ListItemContent>
+                  </ListItemButton>
+                </ListItem>
+              );
             })}
-
           </List>
         </Box>
-        <Typography level="body-sm" sx = {{
-          textAlign: 'center',
-        }}>v0.0.3</Typography>
+        <Typography
+          level="body-sm"
+          sx={{
+            textAlign: "center",
+          }}
+        >
+          v0.0.3
+        </Typography>
       </Sheet>
     );
   }
@@ -287,13 +303,12 @@ function NavBar() {
       open={isDrawerOpen}
       onClose={toggleDrawer}
       anchor="left"
-      size="sm"
+      size="lg"
       sx={{
         position: { xs: "fixed", md: "sticky" },
         borderColor: "divider",
         zIndex: 10000,
         height: "100dvh",
-        width: "var(--Sidebar-width)",
       }}
     >
       {sidebarContents()}
