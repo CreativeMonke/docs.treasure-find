@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
-import rehypeHighlight from "rehype-highlight";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { coldarkDark , coldarkCold } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Box, useTheme } from "@mui/joy";
 import "./markdown.css";
 import "github-markdown-css";
@@ -42,9 +43,28 @@ function MarkdownRenderer({ path }) {
     >
       <div className="markdown-body md-docs">
         <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeHighlight, rehypeRaw]}
           children={markdownContent}
+          components={{
+            code(props) {
+              const { children, className, node, ...rest } = props;
+              const match = /language-(\w+)/.exec(className || "");
+              return match ? (
+                <SyntaxHighlighter
+                  {...rest}
+                  PreTag="div"
+                  children={String(children).replace(/\n$/, "")}
+                  language={match[1]}
+                  style={isDarkMode ? coldarkDark : coldarkCold}
+                />
+              ) : (
+                <code {...rest} className={className}>
+                  {children}
+                </code>
+              );
+            },
+          }}
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw]} // Add rehype-raw here
         />
       </div>
     </Box>

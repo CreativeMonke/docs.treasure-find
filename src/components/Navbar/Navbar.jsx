@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import Box from "@mui/joy/Box";
 import {
-  DialogContent,
-  Divider,
-  Grid,
   List,
   ListItem,
   ListItemButton,
@@ -18,24 +15,17 @@ import MenuIcon from "@mui/icons-material/Menu";
 import "./navbar.css";
 import {
   ApiRounded,
-  AttributionRounded,
-  CategoryRounded,
   CodeRounded,
   CopyrightRounded,
-  DownloadingRounded,
-  Group,
   HomeRounded,
   KeyboardArrowDownOutlined,
-  MapOutlined,
   RocketLaunchRounded,
   StorageRounded,
-  SupportRounded,
   TuneRounded,
 } from "@mui/icons-material";
 import Header from "../pages/PageStructure/Header";
 import LanguageSwitcher from "./Language/LanguageSelect";
-import { useTranslation } from "react-i18next"; // Import useTranslation
-
+import { useTranslation } from "react-i18next";
 function Toggler({ defaultExpanded = false, children, renderToggle }) {
   const [open, setOpen] = React.useState(defaultExpanded);
   return (
@@ -65,7 +55,6 @@ function NavBar() {
     typeof window !== "undefined" && window.innerWidth < 900
   );
   const location = useLocation();
-  const navigate = useNavigate();
   function isCurrent(path) {
     return location.pathname === path;
   }
@@ -295,7 +284,7 @@ function NavBar() {
             textAlign: "center",
           }}
         >
-          v0.0.3
+          v0.0.5a
         </Typography>
       </Sheet>
     );
