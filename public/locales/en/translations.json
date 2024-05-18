@@ -17,6 +17,7 @@
   "Go for login": "Go for login",
   "alreadyHaveAccount": "Already have an account?",
   "home": "Home",
+  "faq":"FAQ",
   "locations": "Locations",
   "overview": "Overview",
   "answers" : "Answers",
@@ -68,5 +69,7 @@
   "verificationCode": "Verification Code",
   "verifyYourEmail": "Verify Your Email",
   "verify": "Verify",
-  "enterVerificationCode": "Please enter the verification code sent to your email."
+  "enterVerificationCode": "Please enter the verification code sent to your email.",
+  "configuration":"Configuration"
+
 }

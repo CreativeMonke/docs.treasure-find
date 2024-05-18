@@ -4,20 +4,18 @@ import QuestionCard from "./QuestionCard";
 import supportQuestions from "./SupportQuestions.js";
 function SupportPage(props) {
   return (
-    <Sheet
-      variant="soft"
-      sx={{
-        p: 3,
-        overflow: "auto",
-        display: "flex",
-        flexDirection: "column",
-        borderRadius: "10px",
-      }}
-    >
+    <>
       <Grid
-        container // Specify this Grid as a container
+        container
         spacing={6} // Provides space between items
         rowGap={6}
+        sx={{
+          height: "90%",
+          pt: 4,
+          pr: 2,
+          pl: 2,
+          opacity: 1,
+        }}
       >
         {supportQuestions.map((cardInfo, index) => (
           <Grid item lg={4} xs={12} sm={6} key={index}>
@@ -35,11 +33,13 @@ function SupportPage(props) {
           textAlign: "center", // Center the text
         }}
       >
-        <Typography level="title-lg" >
+        <Typography level="title-lg" sx = {{
+          bottom : 1
+        }}>
           Realizat de Darabana Rares Cristian
         </Typography>
       </Box>
-    </Sheet>
+    </>
   );
 }
 

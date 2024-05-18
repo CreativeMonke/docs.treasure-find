@@ -78,7 +78,7 @@ function NavBar() {
 
   const sidebarItems = [
     {
-      title: "Home",
+      title: `${t("faq")}`,
       icon: <HomeRounded />,
       link: "/",
       current: isCurrent("/"),
@@ -92,7 +92,7 @@ function NavBar() {
       nested: false,
     },
     {
-      title: "Configuration",
+      title: `${t("configuration")}`,
       icon: <TuneRounded />,
       link: "/configuration",
       isCurrent: isCurrent("/configuration"),

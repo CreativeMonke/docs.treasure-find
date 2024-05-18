@@ -18,6 +18,7 @@
   "Go for login": "Procedează la autentificare",
   "alreadyHaveAccount": "Ai deja un cont?",
   "home": "Acasă",
+  "faq":"Intrebări frecvente",
   "locations": "Locații",
   "overview": "Prezentare generală",
   "answers" : "Răspunsuri",
@@ -69,6 +70,7 @@
   "verificationCode": "Cod de verificare",
   "verifyYourEmail": "Verifică-ți Emailul",
   "verify": "Verifică",
-  "enterVerificationCode": "Vă rugăm să introduceți codul de verificare trimis pe emailul dvs."
+  "enterVerificationCode": "Vă rugăm să introduceți codul de verificare trimis pe emailul dvs.",
+  "configuration":"Configurare"
 
 }
