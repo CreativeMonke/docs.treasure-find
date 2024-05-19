@@ -82,5 +82,6 @@
   "credits": "Credits",
   "frameworks_libraries": "Frameworks & Libraries",
   "hosting_services": "Hosting Services",
-  "other_services": "Other services"
+  "other_services": "Other services",
+  "back_to_app" : "Back to App"
 }

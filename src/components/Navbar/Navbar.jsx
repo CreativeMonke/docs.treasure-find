@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Box from "@mui/joy/Box";
 import {
+  Button,
   List,
   ListItem,
   ListItemButton,
@@ -17,6 +18,7 @@ import {
   ApiRounded,
   CodeRounded,
   CopyrightRounded,
+  ExitToAppRounded,
   KeyboardArrowDownOutlined,
   LiveHelpRounded,
   RocketLaunchRounded,
@@ -278,6 +280,18 @@ function NavBar() {
             })}
           </List>
         </Box>
+        <Button
+          variant="plain"
+          size="lg"
+          startDecorator={<ExitToAppRounded />}
+          onClick={() => (window.location.href = "https://treasure-find.vercel.app")}
+          sx={{
+            width: "50%",
+            minWidth: "fit-content",
+          }}
+        >
+          {t("back_to_app")}
+        </Button>
         <Typography
           level="body-sm"
           sx={{
