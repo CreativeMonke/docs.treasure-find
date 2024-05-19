@@ -129,21 +129,9 @@ function NavBar() {
     {
       title: `${t("codebase_overview")}`,
       icon: <CodeRounded />,
-      link: "/codebase",
-      isCurrent: isCurrent("/codebase"),
-      nested: true,
-      children: [
-        {
-          title: `${t("project_structure")}`,
-          link: "/codebase/structure",
-          isCurrent: isCurrent("/codebase/structure"),
-        },
-        {
-          title: `${t("module_descriptions")}`,
-          link: "/codebase/modules",
-          isCurrent: isCurrent("/codebase/modules"),
-        },
-      ],
+      link: "/repos",
+      isCurrent: isCurrent("/repos"),
+      nested: false,
     },
     {
       title: `${t("credits")}`,
@@ -161,11 +149,6 @@ function NavBar() {
           title: `${t("hosting_services")}`,
           link: "/credits/hosting",
           isCurrent: isCurrent("/credits/hosting"),
-        },
-        {
-          title: `${t("other_services")}`,
-          link: "/credits/other",
-          isCurrent: isCurrent("/credits/other"),
         },
       ],
     },
@@ -284,7 +267,9 @@ function NavBar() {
           variant="plain"
           size="lg"
           startDecorator={<ExitToAppRounded />}
-          onClick={() => (window.location.href = "https://treasure-find.vercel.app")}
+          onClick={() =>
+            (window.location.href = "https://treasure-find.vercel.app")
+          }
           sx={{
             width: "50%",
             minWidth: "fit-content",

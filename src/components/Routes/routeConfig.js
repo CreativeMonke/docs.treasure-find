@@ -6,6 +6,8 @@ import DeploymentGuide from '../Docs/Deployment/DeploymentGuide.jsx';
 import ConfigurationGuide from '../Docs/Configuration/ConfigurationGuide.jsx';
 import EndpointsReference, { AuthReference } from '../Docs/Api/ApiReference.jsx';
 import DatabaseConfig from '../Docs/Database/DatabaseConfig.jsx';
+import Frameworks, { HosingServices } from '../Docs/Credits/CreditsReference.jsx';
+import ReposReference from '../Docs/Repos/ReposReference.jsx';
 const routeConfig = [
   {
     path: '/',
@@ -41,6 +43,18 @@ const routeConfig = [
   {
     path: "/database",
     element : DatabaseConfig,
+  },
+  {
+    path: "/repos",
+    element : ReposReference,
+  },
+  {
+    path : "/credits/frameworks",
+    element : Frameworks,
+  },
+  {
+    path : "/credits/hosting",
+    element : HosingServices,
   }
 ];
 
