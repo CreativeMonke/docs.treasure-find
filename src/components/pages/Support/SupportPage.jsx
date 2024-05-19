@@ -1,8 +1,18 @@
-import { Box, Grid, Sheet, Typography } from "@mui/joy";
-import React from "react";
+import { Box, Grid, Typography } from "@mui/joy";
+import React, { useEffect, useState } from "react";
 import QuestionCard from "./QuestionCard";
-import supportQuestions from "./SupportQuestions.js";
+import supportQuestionsRo from "./SupportQuestionsRo.js";
+import supportQuestionsEn from "./SupportQuestionsEn.js";
+import i18n from "i18next";
 function SupportPage(props) {
+  const userLanguage = i18n.language || window.navigator.language;
+  const language = userLanguage.split("-")[0];
+  const [supportQuestions, setSupportQuestions] = useState(supportQuestionsRo);
+  useEffect(() => {
+    if (language === "ro") setSupportQuestions(supportQuestionsRo);
+    else setSupportQuestions(supportQuestionsEn);
+  }, [language, userLanguage, supportQuestions, setSupportQuestions]);
+
   return (
     <>
       <Grid
@@ -10,10 +20,9 @@ function SupportPage(props) {
         spacing={6} // Provides space between items
         rowGap={6}
         sx={{
-          height: "90%",
-          pt: 4,
-          pr: 2,
-          pl: 2,
+          mt: 4,
+          mr: 2,
+          ml: 2,
           opacity: 1,
         }}
       >
@@ -29,14 +38,18 @@ function SupportPage(props) {
       </Grid>
       <Box
         sx={{
-          mt: 20, // Padding on the top and bottom
+          mt: 10, // Padding on the top and bottom
           textAlign: "center", // Center the text
+          bottom: 1,
         }}
       >
-        <Typography level="title-lg" sx = {{
-          bottom : 1
-        }}>
-          Realizat de Darabana Rares Cristian
+        <Typography
+          level="title-lg"
+          sx={{
+            mb: 4,
+          }}
+        >
+          Realizat de Darabană Rares Cristian
         </Typography>
       </Box>
     </>

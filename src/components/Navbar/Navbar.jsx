@@ -17,8 +17,8 @@ import {
   ApiRounded,
   CodeRounded,
   CopyrightRounded,
-  HomeRounded,
   KeyboardArrowDownOutlined,
+  LiveHelpRounded,
   RocketLaunchRounded,
   StorageRounded,
   TuneRounded,
@@ -79,13 +79,13 @@ function NavBar() {
   const sidebarItems = [
     {
       title: `${t("faq")}`,
-      icon: <HomeRounded />,
+      icon: <LiveHelpRounded />,
       link: "/",
       current: isCurrent("/"),
       nested: false,
     },
     {
-      title: "Deployment guide",
+      title: `${t("deployment_guide")}`,
       icon: <RocketLaunchRounded />,
       link: "/deployment",
       isCurrent: isCurrent("/deployment"),
@@ -99,69 +99,69 @@ function NavBar() {
       nested: false,
     },
     {
-      title: "Api Reference",
+      title: `${t("api_reference")}`,
       icon: <ApiRounded />,
       link: "/api",
       isCurrent: isCurrent("/api"),
       nested: true,
       children: [
         {
-          title: "Endpoints",
+          title: `${t("endpoints")}`,
           link: "/api/endpoints",
           isCurrent: isCurrent("/api/endpoints"),
         },
         {
-          title: "Authentication",
+          title: `${t("authentication")}`,
           link: "/api/authentication",
           isCurrent: isCurrent("/api/authentication"),
         },
       ],
     },
     {
-      title: "Database configuration",
+      title: `${t("database_configuration")}`,
       icon: <StorageRounded />,
       link: "/api/database",
       isCurrent: isCurrent("/api/database"),
       nested: false,
     },
     {
-      title: "Codebase Overview:",
+      title: `${t("codebase_overview")}`,
       icon: <CodeRounded />,
       link: "/codebase",
       isCurrent: isCurrent("/codebase"),
       nested: true,
       children: [
         {
-          title: "Project structure",
+          title: `${t("project_structure")}`,
           link: "/codebase/structure",
           isCurrent: isCurrent("/codebase/structure"),
         },
         {
-          title: "Module descriptions",
+          title: `${t("module_descriptions")}`,
           link: "/codebase/modules",
           isCurrent: isCurrent("/codebase/modules"),
         },
       ],
     },
     {
-      title: "Credits",
+      title: `${t("credits")}`,
       icon: <CopyrightRounded />,
       link: "/credits",
       isCurrent: isCurrent("/credits"),
       nested: true,
       children: [
         {
-          title: "Frameworks & Libraries",
+          title: `${t("frameworks_libraries")}`,
           link: "/credits/frameworks",
           isCurrent: isCurrent("/credits/frameworks"),
         },
         {
-          title: "Hosting Services",
+          title: `${t("hosting_services")}`,
           link: "/credits/hosting",
           isCurrent: isCurrent("/credits/hosting"),
         },
         {
-          title: "Other services",
+          title: `${t("other_services")}`,
           link: "/credits/other",
           isCurrent: isCurrent("/credits/other"),
         },
@@ -202,7 +202,7 @@ function NavBar() {
           onClick={closeDrawer}
         />
         <Box className="SidebarHeader">
-          <Typography level="title-lg">{t("appName")} - DOCS</Typography>
+          <Typography level="title-lg">{t("appName")}</Typography>
           <LanguageSwitcher />
         </Box>
 

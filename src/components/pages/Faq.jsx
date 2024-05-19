@@ -3,7 +3,7 @@ import Box from "@mui/joy/Box";
 import SupportPage from "./Support/SupportPage";
 import { useTheme } from "@mui/joy";
 
-function Home() {
+function Faq() {
   const theme = useTheme();
   const isDarkMode = theme.palette.mode === "dark";
   const opacityAmmount = isDarkMode ? "0.90" : "0.85";
@@ -13,6 +13,7 @@ function Home() {
       backgroundColor="background.body"
       sx={{
         display: "flex",
+        overflow : "auto",
         flexDirection: "column",
         opacity: `${opacityAmmount}`,
         borderRadius: 10,
@@ -23,4 +24,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Faq;

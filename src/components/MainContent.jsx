@@ -31,7 +31,6 @@ function MainContent() {
         pb: { xs: 2, md: 3 },
         flex: 1,
         height: "100hv",
-        overflow: "auto",
         display: "flex",
         flexDirection: "column",
         minWidth: 0,

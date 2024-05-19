@@ -1,4 +1,4 @@
-const supportQuestions = [
+const supportQuestionsRo = [
   {
     question: "Cum accesez aplicația?",
     content: [
@@ -200,4 +200,4 @@ const supportQuestions = [
     ],
   }
 ];
-export default supportQuestions;
+export default supportQuestionsRo;
