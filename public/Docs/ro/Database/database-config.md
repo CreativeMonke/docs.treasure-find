@@ -286,4 +286,4 @@ const UserSchema = new mongoose.Schema(
 ## Diagramă Entitate-Relație (DER)
 
 Mai jos este o reprezentare vizuală a structurii bazei de date, împreună cu o vedere de ansamblu a funcțiilor API-ului.
-![DER](/docs/ro/database/erd.png)
+![DER](/Docs/ro/Database/erd.png)
