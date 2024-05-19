@@ -122,8 +122,8 @@ function NavBar() {
     {
       title: `${t("database_configuration")}`,
       icon: <StorageRounded />,
-      link: "/api/database",
-      isCurrent: isCurrent("/api/database"),
+      link: "/database",
+      isCurrent: isCurrent("/database"),
       nested: false,
     },
     {

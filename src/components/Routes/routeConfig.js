@@ -5,6 +5,7 @@ import DocsSupportPage from '../Docs/Support/DocsSupportPage.jsx';
 import DeploymentGuide from '../Docs/Deployment/DeploymentGuide.jsx';
 import ConfigurationGuide from '../Docs/Configuration/ConfigurationGuide.jsx';
 import EndpointsReference, { AuthReference } from '../Docs/Api/ApiReference.jsx';
+import DatabaseConfig from '../Docs/Database/DatabaseConfig.jsx';
 const routeConfig = [
   {
     path: '/',
@@ -36,6 +37,10 @@ const routeConfig = [
   {
     path: '/api/authentication',
     element: AuthReference,
+  },
+  {
+    path: "/database",
+    element : DatabaseConfig,
   }
 ];
 

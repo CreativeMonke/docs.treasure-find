@@ -64,7 +64,7 @@ function MarkdownRenderer({ path }) {
             },
           }}
           remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]} // Add rehype-raw here
+          rehypePlugins={[rehypeRaw]}
         />
       </div>
     </Box>
